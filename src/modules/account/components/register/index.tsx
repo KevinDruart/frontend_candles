@@ -22,7 +22,7 @@ const Register = ({ setCurrentView }: Props) => {
         Bienvenue chez Candlesandpots
       </h1>
       <p className="text-center text-base-regular text-ui-fg-base mb-4">
-      Créez votre profil Membre et bénéficiez d'une expérience shopping améliorée.
+      Créez votre profil Membre et bénéficiez d&apos;une expérience shopping améliorée.
       </p>
       <form className="w-full flex flex-col" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
