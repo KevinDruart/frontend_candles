@@ -11,7 +11,7 @@ const OnboardingCta = ({ orderId }: { orderId: string }) => {
           Votre commande test a été réalisée avec succès! 🎉
         </Text>
         <Text className="text-ui-fg-subtle text-small-regular">
-          Vous pouvez maintenant terminer la configuration de votre magasin dans l'administrateur.
+          Vous pouvez maintenant terminer la configuration de votre magasin dans l&apos;administrateur.
         </Text>
         <Button
           className="w-fit"
