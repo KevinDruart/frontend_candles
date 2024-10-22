@@ -25,6 +25,7 @@ const Hero = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
@@ -37,6 +38,7 @@ const Hero = () => {
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       {slides.map((slide, index) => (
         <div
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             index === currentSlide ? 'opacity-100' : 'opacity-0'

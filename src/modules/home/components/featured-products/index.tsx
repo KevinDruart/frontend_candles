@@ -1,6 +1,8 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
 
 import ProductRail from "@modules/home/components/featured-products/product-rail"
+// biome-ignore lint/style/useImportType: <explanation>
 import { ProductCollectionWithPreviews } from "types/global"
 
 export default async function FeaturedProducts({

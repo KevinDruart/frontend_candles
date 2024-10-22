@@ -10,6 +10,10 @@ import Hero from "@modules/home/components/hero"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
 
+import CandleMakingStory from "@modules/home/components/conception"
+import MaterialsPremium from "@modules/home/components/material"
+import Newsletter from "@modules/home/components/newsletters"
+
 export const metadata: Metadata = {
   title: "Candlesandpots",
   description:
@@ -74,11 +78,14 @@ export default async function Home({
   return (
     <>
       <Hero />
+      <MaterialsPremium />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
+      <CandleMakingStory />
+      <Newsletter />
     </>
   )
 }
