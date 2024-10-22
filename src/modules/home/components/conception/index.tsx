@@ -40,7 +40,7 @@ const CandleMakingStory = () => {
       id: 6,
       title: "Emballage Créatif",
       icon: "🎨",
-      description: "L'emballage est un moment créatif où notre petite artistes de 7 ans s'exprime, créant des décorations uniques et personnalisées."
+      description: "L'emballage est un moment créatif où nos petits artistes de 7 ans s'expriment, créant des décorations uniques et personnalisées."
     },
     {
       id: 7,
@@ -70,20 +70,61 @@ const CandleMakingStory = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-8">
+    <div className="max-w-6xl mx-auto p-4 sm:p-8">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-bold mb-4">L&apos;Histoire de Nos Bougies</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">L'Histoire de Nos Bougies</h2>
         <p className="text-gray-600">Un voyage artisanal, de la conception à la création</p>
       </motion.div>
 
-      <div className="relative">
-        {/* Timeline ligne verticale */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-amber-200"/>
+      {/* Version Mobile */}
+      <div className="md:hidden">
+        <div className="relative">
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-amber-200"/>
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-8"
+          >
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                variants={stepVariants}
+                className="relative pl-20"
+                onClick={() => setActiveStep(index)}
+              >
+                <motion.div
+                  className={`absolute left-6 w-6 h-6 rounded-full border-4 border-white shadow-lg
+                    ${activeStep === index ? 'bg-amber-400' : 'bg-amber-100'}`}
+                  whileHover={{ scale: 1.2 }}
+                  animate={activeStep === index ? { scale: 1.2 } : { scale: 1 }}
+                />
+                
+                <motion.div
+                  className={`p-4 rounded-lg ${
+                    activeStep === index ? 'bg-amber-50 shadow-lg' : 'bg-white'
+                  }`}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="text-2xl mb-2">{step.icon}</div>
+                  <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                  <p className="text-gray-600 text-sm">{step.description}</p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
 
+      {/* Version Desktop */}
+      <div className="hidden md:block relative">
+        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-amber-200"/>
+        
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -94,7 +135,6 @@ const CandleMakingStory = () => {
             <motion.div
               key={step.id}
               variants={stepVariants}
-              whileHover={{ scale: 1.02 }}
               className={`flex items-center ${
                 index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
               }`}
@@ -104,7 +144,7 @@ const CandleMakingStory = () => {
                 <motion.div
                   className={`p-6 rounded-lg ${
                     activeStep === index ? 'bg-amber-50 shadow-lg' : 'bg-white'
-                  } cursor-pointer transition-colors duration-300`}
+                  } cursor-pointer`}
                   whileHover={{ y: -5 }}
                 >
                   <div className="text-2xl mb-2">{step.icon}</div>
@@ -117,7 +157,6 @@ const CandleMakingStory = () => {
                 className={`absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-amber-100 border-4 border-white shadow-lg
                   ${activeStep === index ? 'bg-amber-400' : ''}`}
                 whileHover={{ scale: 1.2 }}
-                initial={false}
                 animate={activeStep === index ? { scale: 1.2 } : { scale: 1 }}
               >
                 <span className="flex items-center justify-center h-full text-xl">
@@ -128,6 +167,30 @@ const CandleMakingStory = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* Navigation */}
+      <motion.div 
+        className="flex justify-center mt-12 space-x-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+        <button
+          onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
+          className="px-4 py-2 bg-amber-100 rounded-lg hover:bg-amber-200 transition-colors"
+          disabled={activeStep === 0}
+        >
+          ← Précédent
+        </button>
+        {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+        <button
+          onClick={() => setActiveStep(Math.min(steps.length - 1, activeStep + 1))}
+          className="px-4 py-2 bg-amber-100 rounded-lg hover:bg-amber-200 transition-colors"
+          disabled={activeStep === steps.length - 1}
+        >
+          Suivant →
+        </button>
+      </motion.div>
     </div>
   );
 };
