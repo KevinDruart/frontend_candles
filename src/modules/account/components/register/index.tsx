@@ -80,6 +80,7 @@ const Register = ({ setCurrentView }: Props) => {
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">
         Déjà membre?{" "}
+        {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline"

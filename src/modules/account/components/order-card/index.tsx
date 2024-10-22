@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Order } from "@medusajs/medusa"
 import { Button } from "@medusajs/ui"
 import { useMemo } from "react"
@@ -68,7 +69,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
             <span className="text-small-regular text-ui-fg-base">
               + {numberOfLines - 4}
             </span>
-            <span className="text-small-regular text-ui-fg-base">more</span>
+            <span className="text-small-regular text-ui-fg-base">plus</span>
           </div>
         )}
       </div>

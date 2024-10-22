@@ -1,5 +1,6 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { Customer, Region } from "@medusajs/medusa"
 import React, { useEffect, useMemo } from "react"
 
@@ -21,6 +22,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
 }) => {
   const regionOptions = useMemo(() => {
     return (
+      // biome-ignore lint/complexity/useFlatMap: <explanation>
       regions
         ?.map((region) => {
           return region.countries.map((country) => ({
@@ -82,7 +84,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
   return (
     <form action={formAction} onReset={() => clearState()} className="w-full">
       <AccountInfo
-        label="Billing address"
+        label="adresse de facturation"
         currentInfo={currentInfo}
         isSuccess={successState}
         isError={!!state.error}
@@ -92,14 +94,14 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
         <div className="grid grid-cols-1 gap-y-2">
           <div className="grid grid-cols-2 gap-x-2">
             <Input
-              label="First name"
+              label="Prénom"
               name="billing_address.first_name"
               defaultValue={customer.billing_address?.first_name || undefined}
               required
               data-testid="billing-first-name-input"
             />
             <Input
-              label="Last name"
+              label="Nom"
               name="billing_address.last_name"
               defaultValue={customer.billing_address?.last_name || undefined}
               required
@@ -113,28 +115,28 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
             data-testid="billing-company-input"
           />
           <Input
-            label="Address"
+            label="Adresse"
             name="billing_address.address_1"
             defaultValue={customer.billing_address?.address_1 || undefined}
             required
             data-testid="billing-address-1-input"
           />
           <Input
-            label="Apartment, suite, etc."
+            label="Appartement, batiment, suite, etc."
             name="billing_address.address_2"
             defaultValue={customer.billing_address?.address_2 || undefined}
             data-testid="billing-address-2-input"
           />
           <div className="grid grid-cols-[144px_1fr] gap-x-2">
             <Input
-              label="Postal code"
+              label="Code postal"
               name="billing_address.postal_code"
               defaultValue={customer.billing_address?.postal_code || undefined}
               required
               data-testid="billing-postcal-code-input"
             />
             <Input
-              label="City"
+              label="Ville"
               name="billing_address.city"
               defaultValue={customer.billing_address?.city || undefined}
               required
@@ -156,6 +158,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
             <option value="">-</option>
             {regionOptions.map((option, i) => {
               return (
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 <option key={i} value={option.value}>
                   {option.label}
                 </option>
