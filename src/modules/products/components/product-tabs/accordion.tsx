@@ -1,6 +1,6 @@
 import { Text, clx } from "@medusajs/ui"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import React, { forwardRef } from "react"
+import React, { Key } from "react"
 
 type AccordionItemProps = AccordionPrimitive.AccordionItemProps & {
   title: string
@@ -17,33 +17,48 @@ type AccordionItemProps = AccordionPrimitive.AccordionItemProps & {
   children: React.ReactNode
 }
 
-type SingleAccordionProps = AccordionPrimitive.AccordionSingleProps & 
-  React.RefAttributes<HTMLDivElement>;
+type AccordionSingleProps = Omit<AccordionPrimitive.AccordionSingleProps, 'type'> & {
+  type: 'single'
+}
 
-type MultipleAccordionProps = AccordionPrimitive.AccordionMultipleProps & 
-  React.RefAttributes<HTMLDivElement>;
+type AccordionMultipleProps = Omit<AccordionPrimitive.AccordionMultipleProps, 'type'> & {
+  type: 'multiple'
+}
 
-type AccordionProps = (SingleAccordionProps | MultipleAccordionProps) & {
-  key?: React.Key
-};
+type AccordionProps = {
+  key?: Key
+  children: React.ReactNode
+} & (AccordionSingleProps | AccordionMultipleProps)
 
-const Accordion = forwardRef<HTMLDivElement, AccordionProps>(({ children, key, ...props }, ref) => {
-  if ('type' in props && props.type === 'single') {
-    return (
-      <AccordionPrimitive.Root ref={ref} key={key} {...(props as AccordionPrimitive.AccordionSingleProps)}>
-        {children}
-      </AccordionPrimitive.Root>
-    )
-  } else {
-    return (
-      <AccordionPrimitive.Root ref={ref} key={key} {...(props as AccordionPrimitive.AccordionMultipleProps)}>
-        {children}
-      </AccordionPrimitive.Root>
-    )
+const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
+  ({ children, key, ...props }, ref) => {
+    if (props.type === 'single') {
+      return (
+        <AccordionPrimitive.Root 
+          ref={ref}
+          key={key} 
+          type="single" 
+          {...props}
+        >
+          {children}
+        </AccordionPrimitive.Root>
+      )
+    } else {
+      return (
+        <AccordionPrimitive.Root 
+          ref={ref}
+          key={key} 
+          type="multiple" 
+          {...props}
+        >
+          {children}
+        </AccordionPrimitive.Root>
+      )
+    }
   }
-})
-
-Accordion.displayName = "Accordion"
+) as React.FC<AccordionProps> & {
+  Item: React.FC<AccordionItemProps>
+}
 
 const Item: React.FC<AccordionItemProps> = ({
   title,
