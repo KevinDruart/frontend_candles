@@ -122,7 +122,7 @@ const AddAddress = ({ region }: { region: Region }) => {
                 autoComplete="country"
                 data-testid="country-select"
               />
-              <Input label="Phone" name="phone" autoComplete="phone" data-testid="phone-input" />
+              <Input label="Téléphone" name="phone" autoComplete="phone" data-testid="phone-input" />
             </div>
             {formState.error && (
               <div className="text-rose-500 text-small-regular py-2" data-testid="address-error">
