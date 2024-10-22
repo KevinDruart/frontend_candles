@@ -77,10 +77,10 @@ const Newsletter = () => {
             </motion.div>
             
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Rejoignez l'Aventure Artisanale
+              Rejoignez l&apos;Aventure Artisanale
             </h2>
             <p className="text-gray-600 md:text-lg max-w-xl">
-              Plongez dans l'univers de nos bougies artisanales et suivez notre histoire créative.
+              Plongez dans l&apos;univers de nos bougies artisanales et suivez notre histoire créative.
             </p>
           </div>
 
@@ -142,7 +142,7 @@ const Newsletter = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                       >
-                        ✨ Bienvenue dans l'aventure !
+                        ✨ Bienvenue dans l&apos;aventure !
                       </motion.div>
                     ) : (
                       <motion.div
@@ -152,7 +152,7 @@ const Newsletter = () => {
                         exit={{ opacity: 0 }}
                         className="flex items-center justify-center space-x-2"
                       >
-                        <span>Je m'inscris</span>
+                        <span>Je m&apos;inscris</span>
                         {isHovered && (
                           <motion.span
                             initial={{ x: -10, opacity: 0 }}

@@ -76,7 +76,7 @@ const CandleMakingStory = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-bold mb-4">L'Histoire de Nos Bougies</h2>
+        <h2 className="text-4xl font-bold mb-4">L&apos;Histoire de Nos Bougies</h2>
         <p className="text-gray-600">Un voyage artisanal, de la conception à la création</p>
       </motion.div>
 

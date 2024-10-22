@@ -125,7 +125,7 @@ const MaterialsPremium = () => {
         className="text-center mb-16"
         variants={cardVariants}
       >
-        <h2 className="text-4xl font-bold mb-6">Nos Matières Premières d'Exception</h2>
+        <h2 className="text-4xl font-bold mb-6">Nos Matières Premières d&apos;Exception</h2>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           La qualité de nos bougies commence par le choix minutieux de nos matières premières,
           sélectionnées pour leur excellence et leur origine française.
