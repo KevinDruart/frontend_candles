@@ -28,9 +28,20 @@ type AccordionProps = SingleAccordionProps | MultipleAccordionProps;
 const Accordion: React.FC<AccordionProps> & {
   Item: React.FC<AccordionItemProps>
 } = ({ children, ...props }) => {
-  return (
-    <AccordionPrimitive.Root {...props as any}>{children}</AccordionPrimitive.Root>
-  )
+  // Type narrowing based on `type` prop
+  if ('type' in props && props.type === 'single') {
+    return (
+      <AccordionPrimitive.Root {...(props as AccordionPrimitive.AccordionSingleProps)}>
+        {children}
+      </AccordionPrimitive.Root>
+    )
+  } else {
+    return (
+      <AccordionPrimitive.Root {...(props as AccordionPrimitive.AccordionMultipleProps)}>
+        {children}
+      </AccordionPrimitive.Root>
+    )
+  }
 }
 
 const Item: React.FC<AccordionItemProps> = ({
