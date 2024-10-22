@@ -30,38 +30,11 @@ type AccordionProps = {
   children: React.ReactNode
 } & (AccordionSingleProps | AccordionMultipleProps)
 
-const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
-  ({ children, key, ...props }, ref) => {
-    if (props.type === 'single') {
-      return (
-        <AccordionPrimitive.Root 
-          ref={ref}
-          key={key} 
-          type="single" 
-          {...props}
-        >
-          {children}
-        </AccordionPrimitive.Root>
-      )
-    } else {
-      return (
-        <AccordionPrimitive.Root 
-          ref={ref}
-          key={key} 
-          type="multiple" 
-          {...props}
-        >
-          {children}
-        </AccordionPrimitive.Root>
-      )
-    }
-  }
-) as React.FC<AccordionProps> & {
+type AccordionComponent = React.ForwardRefExoticComponent<
+  AccordionProps & React.RefAttributes<HTMLDivElement>
+> & {
   Item: React.FC<AccordionItemProps>
 }
-
-// Add display name for the main Accordion component
-Accordion.displayName = 'Accordion'
 
 const Item: React.FC<AccordionItemProps> = ({
   title,
@@ -116,9 +89,6 @@ const Item: React.FC<AccordionItemProps> = ({
   )
 }
 
-// Add display name for the Item component
-Item.displayName = 'Accordion.Item'
-
 const MorphingTrigger = () => {
   return (
     <div className="text-grey-90 hover:bg-grey-5 active:bg-grey-5 active:text-violet-60 focus:border-violet-60 disabled:text-grey-30 bg-transparent disabled:bg-transparent rounded-rounded group relative p-[6px]">
@@ -130,9 +100,37 @@ const MorphingTrigger = () => {
   )
 }
 
-// Add display name for the MorphingTrigger component
+const AccordionComponent = React.forwardRef<HTMLDivElement, AccordionProps>(
+  ({ children, key, ...props }, ref) => {
+    if (props.type === 'single') {
+      return (
+        <AccordionPrimitive.Root 
+          ref={ref}
+          key={key} 
+          type="single" 
+          {...props}
+        >
+          {children}
+        </AccordionPrimitive.Root>
+      )
+    }
+    return (
+      <AccordionPrimitive.Root 
+        ref={ref}
+        key={key} 
+        type="multiple" 
+        {...props}
+      >
+        {children}
+      </AccordionPrimitive.Root>
+    )
+  }
+) as AccordionComponent
+
+AccordionComponent.displayName = 'Accordion'
+Item.displayName = 'Accordion.Item'
 MorphingTrigger.displayName = 'Accordion.MorphingTrigger'
 
-Accordion.Item = Item
+AccordionComponent.Item = Item
 
-export default Accordion
+export default AccordionComponent
