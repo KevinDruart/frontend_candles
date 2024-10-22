@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Order } from "@medusajs/medusa"
 import { Text } from "@medusajs/ui"
 
@@ -23,7 +24,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         .
       </Text>
       <Text className="mt-2">
-        Order date: <span data-testid="order-date">{new Date(order.created_at).toDateString()}</span>
+        Date de la commande: <span data-testid="order-date">{new Date(order.created_at).toDateString()}</span>
       </Text>
       <Text className="mt-2 text-ui-fg-interactive">
         Numero de commande: <span data-testid="order-id">{order.display_id}</span>
@@ -33,13 +34,13 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         {showStatus && (
           <>
             <Text>
-              Order status:{" "}
+              Statut de la commande{" "}
               <span className="text-ui-fg-subtle " data-testid="order-status">
                 {formatStatus(order.fulfillment_status)}
               </span>
             </Text>
             <Text>
-              Payment status:{" "}
+              Statut du paiement{" "}
               <span className="text-ui-fg-subtle " sata-testid="order-payment-status">
                 {formatStatus(order.payment_status)}
               </span>

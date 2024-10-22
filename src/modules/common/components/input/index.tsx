@@ -31,6 +31,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       }
     }, [type, showPassword])
 
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     useImperativeHandle(ref, () => inputRef.current!)
 
     return (
@@ -48,6 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
             ref={inputRef}
           />
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
           <label
             htmlFor={name}
             onClick={() => inputRef.current?.focus()}

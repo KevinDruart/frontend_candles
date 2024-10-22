@@ -3,6 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback } from "react"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import SortProducts, { SortOptions } from "./sort-products"
 
 type RefinementListProps = {

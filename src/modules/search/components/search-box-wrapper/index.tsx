@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation"
+// biome-ignore lint/style/useImportType: <explanation>
 import {
   ChangeEvent,
   FormEvent,
@@ -7,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react"
+// biome-ignore lint/style/useImportType: <explanation>
 import { UseSearchBoxProps, useSearchBox } from "react-instantsearch-hooks-web"
 
 export type ControlledSearchBoxProps = React.ComponentProps<"div"> & {
@@ -31,7 +33,7 @@ type SearchBoxProps = {
 
 const SearchBoxWrapper = ({
   children,
-  placeholder = "Search products...",
+  placeholder = "Produit recherché...",
   ...rest
 }: SearchBoxProps) => {
   const { query, refine } = useSearchBox(rest)
@@ -54,6 +56,7 @@ const SearchBoxWrapper = ({
     }
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (query !== value) {
       refine(value)
@@ -62,6 +65,7 @@ const SearchBoxWrapper = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     // We bypass the state update if the input is focused to avoid concurrent
     // updates when typing.

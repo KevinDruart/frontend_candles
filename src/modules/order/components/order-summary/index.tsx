@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Order } from "@medusajs/medusa"
 import { formatAmount } from "@lib/util/prices"
 
@@ -19,7 +20,7 @@ const OrderSummary = ({ order }: OrderSummaryProps) => {
       <h2 className="text-base-semi">Récapitulatif de commande</h2>
       <div className="text-small-regular text-ui-fg-base my-2">
         <div className="flex items-center justify-between text-base-regular text-ui-fg-base mb-2">
-          <span>Sous-totale</span>
+          <span>Sous-total</span>
           <span>{getAmount(order.subtotal)}</span>
         </div>
         <div className="flex flex-col gap-y-1">

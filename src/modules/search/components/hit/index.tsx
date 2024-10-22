@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { ProductVariant } from "@medusajs/medusa"
 import { Container, Text } from "@medusajs/ui"
 

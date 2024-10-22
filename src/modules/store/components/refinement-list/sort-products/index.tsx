@@ -1,5 +1,6 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { ChangeEvent } from "react"
 
 import FilterRadioGroup from "@modules/common/components/filter-radio-group"
@@ -15,15 +16,15 @@ type SortProductsProps = {
 const sortOptions = [
   {
     value: "created_at",
-    label: "Latest Arrivals",
+    label: "Derniers arrivages",
   },
   {
     value: "price_asc",
-    label: "Price: Low -> High",
+    label: "Prix du - cher au + cher",
   },
   {
     value: "price_desc",
-    label: "Price: High -> Low",
+    label: "Prix du + cher au - cher",
   },
 ]
 

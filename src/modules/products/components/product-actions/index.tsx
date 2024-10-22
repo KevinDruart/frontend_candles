@@ -1,6 +1,8 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
+// biome-ignore lint/style/useImportType: <explanation>
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { Button } from "@medusajs/ui"
 import { isEqual } from "lodash"
@@ -103,7 +105,8 @@ export default function ProductActions({
     }
 
     // If we allow back orders on the variant, we can add to cart
-    if (variant && variant.allow_backorder) {
+    // biome-ignore lint/complexity/useOptionalChain: <explanation>
+        if (variant && variant.allow_backorder) {
       return true
     }
 
@@ -173,8 +176,8 @@ export default function ProductActions({
           {!variant
             ? "Select variant"
             : !inStock
-            ? "Out of stock"
-            : "Add to cart"}
+            ? "Victime de son succès"
+            : "Ajouter au panier"}
         </Button>
         <MobileActions
           product={product}

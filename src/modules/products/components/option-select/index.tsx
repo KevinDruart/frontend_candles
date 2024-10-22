@@ -1,5 +1,7 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { ProductOption } from "@medusajs/medusa"
 import { clx } from "@medusajs/ui"
+// biome-ignore lint/style/useImportType: <explanation>
 import React from "react"
 
 import { onlyUnique } from "@lib/util/only-unique"
@@ -25,13 +27,14 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
 
   return (
     <div className="flex flex-col gap-y-3">
-      <span className="text-sm">Select {title}</span>
+      <span className="text-sm">Selectionner {title}</span>
       <div
         className="flex flex-wrap justify-between gap-2"
         data-testid={dataTestId}
       >
         {filteredOptions.map((v) => {
           return (
+            // biome-ignore lint/a11y/useButtonType: <explanation>
             <button
               onClick={() => updateOption({ [option.id]: v })}
               key={v}

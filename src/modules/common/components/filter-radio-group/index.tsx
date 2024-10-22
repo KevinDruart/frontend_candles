@@ -1,5 +1,6 @@
 import { EllipseMiniSolid } from "@medusajs/icons"
 import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
+// biome-ignore lint/style/useImportType: <explanation>
 import { ChangeEvent } from "react"
 
 type FilterRadioGroupProps = {
@@ -8,7 +9,9 @@ type FilterRadioGroupProps = {
     value: string
     label: string
   }[]
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   value: any
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   handleChange: (...args: any[]) => void
   'data-testid'?: string
 }

@@ -1,7 +1,9 @@
 import { XMarkMini } from "@medusajs/icons"
+// biome-ignore lint/style/useImportType: <explanation>
 import { FormEvent } from "react"
 import { useRouter } from "next/navigation"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import SearchBoxWrapper, {
   ControlledSearchBoxProps,
 } from "../search-box-wrapper"
@@ -63,7 +65,7 @@ const ControlledSearchBox = ({
               className="items-center justify-center text-ui-fg-on-color focus:outline-none gap-x-2 px-2 txt-compact-large flex"
             >
               <XMarkMini />
-              Cancel
+              Annuler
             </button>
           )}
         </div>

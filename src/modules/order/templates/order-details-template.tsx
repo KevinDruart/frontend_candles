@@ -1,7 +1,9 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { Order } from "@medusajs/medusa"
 import { XMark } from "@medusajs/icons"
+// biome-ignore lint/style/useImportType: <explanation>
 import React from "react"
 
 import Help from "@modules/order/components/help"

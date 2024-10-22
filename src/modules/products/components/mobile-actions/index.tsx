@@ -1,9 +1,11 @@
 import { Dialog, Transition } from "@headlessui/react"
+// biome-ignore lint/style/useImportType: <explanation>
 import {
   PricedProduct,
   PricedVariant,
 } from "@medusajs/medusa/dist/types/pricing"
 import { Button, clx } from "@medusajs/ui"
+// biome-ignore lint/style/useImportType: <explanation>
 import React, { Fragment, useMemo } from "react"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
@@ -11,6 +13,7 @@ import ChevronDown from "@modules/common/icons/chevron-down"
 import X from "@modules/common/icons/x"
 
 import { getProductPrice } from "@lib/util/get-product-price"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
 import OptionSelect from "../option-select"
 
@@ -99,6 +102,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   </span>
                 </div>
               ) : (
+                // biome-ignore lint/style/useSelfClosingElements: <explanation>
                 <div></div>
               )}
             </div>
@@ -128,8 +132,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 {!variant
                   ? "Select variant"
                   : !inStock
-                  ? "Out of stock"
-                  : "Add to cart"}
+                  ? "Victime de son succès"
+                  : "Ajouter au panier"}
               </Button>
             </div>
           </div>
@@ -165,6 +169,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   data-testid="mobile-actions-modal"
                 >
                   <div className="w-full flex justify-end pr-6">
+                    {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
                     <button
                       onClick={close}
                       className="bg-white w-12 h-12 rounded-full text-ui-fg-base flex justify-center items-center"

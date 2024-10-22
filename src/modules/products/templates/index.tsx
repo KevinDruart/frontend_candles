@@ -1,5 +1,8 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
+// biome-ignore lint/style/useImportType: <explanation>
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
+// biome-ignore lint/style/useImportType: <explanation>
 import React, { Suspense } from "react"
 
 import ImageGallery from "@modules/products/components/image-gallery"

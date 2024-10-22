@@ -1,10 +1,12 @@
 "use client"
 
 import { Listbox, Transition } from "@headlessui/react"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
 import { Fragment, useEffect, useMemo, useState } from "react"
 import ReactCountryFlag from "react-country-flag"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { StateType } from "@lib/hooks/use-toggle-state"
 import { updateRegion } from "app/actions"
 import { useParams, usePathname } from "next/navigation"
@@ -29,6 +31,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   const { state, close } = toggleState
 
   const options: CountryOption[] | undefined = useMemo(() => {
+    // biome-ignore lint/complexity/useFlatMap: <explanation>
     return regions
       ?.map((r) => {
         return r.countries.map((c) => ({
@@ -66,7 +69,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
       >
         <Listbox.Button className="py-1 w-full">
           <div className="txt-compact-small flex items-start gap-x-2">
-            <span>Shipping to:</span>
+            <span>Livraison à:</span>
             {current && (
               <span className="txt-compact-small flex items-center gap-x-2">
                 <ReactCountryFlag
@@ -97,6 +100,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
               {options?.map((o, index) => {
                 return (
                   <Listbox.Option
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                     key={index}
                     value={o}
                     className="py-2 hover:bg-gray-200 px-3 cursor-pointer flex items-center gap-x-2"

@@ -1,5 +1,6 @@
 import { Text, clx } from "@medusajs/ui"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { PriceType } from "../product-actions"
 
 export default async function PreviewPrice({ price }: { price: PriceType }) {

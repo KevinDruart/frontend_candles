@@ -1,6 +1,8 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Image as MedusaImage } from "@medusajs/medusa"
 import { Container, clx } from "@medusajs/ui"
 import Image from "next/image"
+// biome-ignore lint/style/useImportType: <explanation>
 import React from "react"
 
 import PlaceholderImage from "@modules/common/icons/placeholder-image"

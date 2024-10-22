@@ -2,6 +2,7 @@ import { Heading, Text } from "@medusajs/ui"
 import Link from "next/link"
 
 import RefinementList from "@modules/store/components/refinement-list"
+// biome-ignore lint/style/useImportType: <explanation>
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -21,6 +22,7 @@ const SearchResultsTemplate = ({
   page,
   countryCode,
 }: SearchResultsTemplateProps) => {
+  // biome-ignore lint/style/useNumberNamespace: <explanation>
   const pageNumber = page ? parseInt(page) : 1
 
   return (
@@ -53,7 +55,7 @@ const SearchResultsTemplate = ({
             </div>
           </>
         ) : (
-          <Text className="ml-8 small:ml-14 mt-3">No results.</Text>
+          <Text className="ml-8 small:ml-14 mt-3">Aucun resultat.</Text>
         )}
       </div>
     </>

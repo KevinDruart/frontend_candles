@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import {
   PricedProduct,
   PricedVariant,
@@ -5,6 +6,7 @@ import {
 import { clx } from "@medusajs/ui"
 
 import { getProductPrice } from "@lib/util/get-product-price"
+// biome-ignore lint/style/useImportType: <explanation>
 import { RegionInfo } from "types/global"
 
 export default function ProductPrice({

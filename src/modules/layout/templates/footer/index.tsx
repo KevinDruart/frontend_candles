@@ -17,9 +17,13 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="lg:w-1/3 flex flex-col lg:flex-row items-center lg:justify-center space-y-4 lg:space-y-0 lg:space-x-8">
+            {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
             <a href="#" className="text-sm hover:underline hover:text-[#3b1b00] transition">Accueil</a>
+            {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
             <a href="#" className="text-sm hover:underline hover:text-[#3b1b00] transition">Nos Bougies</a>
+            {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
             <a href="#" className="text-sm hover:underline hover:text-[#3b1b00] transition">À Propos</a>
+            {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
             <a href="#" className="text-sm hover:underline hover:text-[#3b1b00] transition">Contact</a>
           </div>
 

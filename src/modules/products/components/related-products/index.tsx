@@ -1,4 +1,6 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { StoreGetProductsParams } from "@medusajs/medusa"
+// biome-ignore lint/style/useImportType: <explanation>
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 
 import { getProductsList, getRegion } from "@lib/data"
@@ -64,10 +66,10 @@ export default async function RelatedProducts({
     <div className="product-page-constraint">
       <div className="flex flex-col items-center text-center mb-16">
         <span className="text-base-regular text-gray-600 mb-6">
-          Related products
+          Produits associés
         </span>
         <p className="text-2xl-regular text-ui-fg-base max-w-lg">
-          You might also want to check out these products.
+        Vous voudrez peut-être également consulter ces produits.
         </p>
       </div>
 

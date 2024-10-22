@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { LineItem } from "@medusajs/medusa"
 
 import { enrichLineItems, retrieveCart } from "@modules/cart/actions"

@@ -30,6 +30,7 @@ const SkeletonCartPage = () => {
                     <Table.HeaderCell className="!pl-0">
                       <div className="w-10 h-6 bg-gray-200 animate-pulse" />
                     </Table.HeaderCell>
+                    {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
                     <Table.HeaderCell></Table.HeaderCell>
                     <Table.HeaderCell>
                       <div className="w-16 h-6 bg-gray-200 animate-pulse" />

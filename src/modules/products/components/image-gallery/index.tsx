@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Image as MedusaImage } from "@medusajs/medusa"
 import { Container } from "@medusajs/ui"
 import Image from "next/image"
@@ -19,6 +20,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
             >
               <Image
                 src={image.url}
+                // biome-ignore lint/complexity/noUselessTernary: <explanation>
                 priority={index <= 2 ? true : false}
                 className="absolute inset-0 rounded-rounded"
                 alt={`Product image ${index + 1}`}

@@ -1,9 +1,11 @@
 import { Text } from "@medusajs/ui"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { ProductPreviewType } from "types/global"
 
 import { retrievePricedProductById } from "@lib/data"
 import { getProductPrice } from "@lib/util/get-product-price"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"

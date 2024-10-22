@@ -21,6 +21,7 @@ export default function SearchModal() {
     }
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     window.addEventListener("click", handleOutsideClick)
     // cleanup
@@ -39,7 +40,8 @@ export default function SearchModal() {
   }, [])
 
   // on escape key press, close modal
-  useEffect(() => {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+    useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         router.back()

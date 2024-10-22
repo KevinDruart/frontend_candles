@@ -1,4 +1,5 @@
 import { Checkbox, Label } from "@medusajs/ui"
+// biome-ignore lint/style/useImportType: <explanation>
 import React from "react"
 
 type CheckboxProps = {

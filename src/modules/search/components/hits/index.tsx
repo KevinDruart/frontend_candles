@@ -1,11 +1,14 @@
 import { clx } from "@medusajs/ui"
+// biome-ignore lint/style/useImportType: <explanation>
 import React from "react"
+// biome-ignore lint/style/useImportType: <explanation>
 import {
   UseHitsProps,
   useHits,
   useSearchBox,
 } from "react-instantsearch-hooks-web"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { ProductHit } from "../hit"
 import ShowAll from "../show-all"
 
@@ -39,6 +42,7 @@ const Hits = ({
       >
         {hits.slice(0, 6).map((hit, index) => (
           <li
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
             className={clx("list-none", {
               "hidden sm:block": index > 2,

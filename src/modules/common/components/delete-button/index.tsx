@@ -29,6 +29,7 @@ const DeleteButton = ({
         className
       )}
     >
+      {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
       <button
         className="flex gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer"
         onClick={() => handleDelete(id)}

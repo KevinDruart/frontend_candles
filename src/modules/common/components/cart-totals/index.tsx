@@ -2,8 +2,10 @@
 
 import { formatAmount } from "@lib/util/prices"
 import { InformationCircleSolid } from "@medusajs/icons"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Cart, Order } from "@medusajs/medusa"
 import { Tooltip } from "@medusajs/ui"
+// biome-ignore lint/style/useImportType: <explanation>
 import React from "react"
 
 type CartTotalsProps = {
@@ -33,7 +35,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
       <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
         <div className="flex items-center justify-between">
           <span className="flex gap-x-1 items-center">
-            Subtotal
+            Sous-total
             <Tooltip content="Cart total excluding shipping and taxes.">
               <InformationCircleSolid color="var(--fg-muted)" />
             </Tooltip>
@@ -44,7 +46,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
         </div>
         {!!discount_total && (
           <div className="flex items-center justify-between">
-            <span>Discount</span>
+            <span>Remises</span>
             <span
               className="text-ui-fg-interactive"
               data-testid="cart-discount"
@@ -55,7 +57,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
           </div>
         )}
         <div className="flex items-center justify-between">
-          <span>Shipping</span>
+          <span>Livraison</span>
           <span data-testid="cart-shipping" data-value={shipping_total || 0}>
             {getAmount(shipping_total)}
           </span>
@@ -68,7 +70,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
         </div>
         {!!gift_card_total && (
           <div className="flex items-center justify-between">
-            <span>Gift card</span>
+            <span>Carte cadeau</span>
             <span
               className="text-ui-fg-interactive"
               data-testid="cart-gift-card-amount"
