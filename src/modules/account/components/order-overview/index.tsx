@@ -28,7 +28,7 @@ const OrderOverview = ({ orders }: { orders: Order[] }) => {
       className="w-full flex flex-col items-center gap-y-4"
       data-testid="no-orders-container"
     >
-      <h2 className="text-large-semi">Il n'y a rien a voir</h2>
+      <h2 className="text-large-semi">Il n&apos;y a rien a voir</h2>
       <p className="text-base-regular">
         Vous n&apos;avez pas de commandes en cours, mais vous pouvez changer cela {":)"}
       </p>

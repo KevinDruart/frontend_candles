@@ -18,7 +18,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
         <div className="text-xl-semi flex justify-between items-center mb-4">
           <span data-testid="welcome-message" data-value={customer?.first_name}>Bonjour {customer?.first_name}</span>
           <span className="text-small-regular text-ui-fg-base">
-            Connecté avec l'adresse:{" "}
+            Connecté avec l&apos;adresse:{" "}
             <span className="font-semibold" data-testid="customer-email" data-value={customer?.email}>{customer?.email}</span>
           </span>
         </div>
