@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="lg:w-1/3">
             <h2 className="text-2xl font-bold mb-2 tracking-wide">Candlesandpots</h2>
             <p className="text-sm text-[#3b1b00] opacity-80">
-              Découvrez l'alliance parfaite entre artisanat authentique et élégance intemporelle. Chaque bougie et pot qui sort de notre atelier raconte une histoire unique, façonnée avec passion.
+              Découvrez l&apos;alliance parfaite entre artisanat authentique et élégance intemporelle. Chaque bougie et pot qui sort de notre atelier raconte une histoire unique, façonnée avec passion.
             </p>
           </div>
 
