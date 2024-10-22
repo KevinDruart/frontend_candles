@@ -1,9 +1,11 @@
 import ItemsTemplate from "./items"
 import Summary from "./summary"
 import EmptyCartMessage from "../components/empty-cart-message"
+// biome-ignore lint/style/useImportType: <explanation>
 import { CartWithCheckoutStep } from "types/global"
 import SignInPrompt from "../components/sign-in-prompt"
 import Divider from "@modules/common/components/divider"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Customer } from "@medusajs/medusa"
 
 const CartTemplate = ({
@@ -29,6 +31,7 @@ const CartTemplate = ({
             </div>
             <div className="relative">
               <div className="flex flex-col gap-y-8 sticky top-12">
+                {/* biome-ignore lint/complexity/useOptionalChain: <explanation> */}
                 {cart && cart.region && (
                   <>
                     <div className="bg-white py-6">

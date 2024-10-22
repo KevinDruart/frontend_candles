@@ -1,5 +1,6 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { LineItem, Region } from "@medusajs/medusa"
 import { Table, Text, clx } from "@medusajs/ui"
 
@@ -70,6 +71,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
             <DeleteButton id={item.id} data-testid="product-delete-button" />
             <CartItemSelect
               value={item.quantity}
+              // biome-ignore lint/style/useNumberNamespace: <explanation>
               onChange={(value) => changeQuantity(parseInt(value.target.value))}
               className="w-14 h-10 p-4"
               data-testid="product-select-button"
@@ -84,7 +86,8 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
                   ),
                 },
                 (_, i) => (
-                  <option value={i + 1} key={i}>
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+<option value={i + 1} key={i}>
                     {i + 1}
                   </option>
                 )

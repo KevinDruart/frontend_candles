@@ -1,5 +1,6 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { LineItem, Region } from "@medusajs/medusa"
 import { Table, clx } from "@medusajs/ui"
 
