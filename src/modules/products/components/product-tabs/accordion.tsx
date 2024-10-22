@@ -1,6 +1,6 @@
 import { Text, clx } from "@medusajs/ui"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import React, { Key } from "react"
+import React, { forwardRef } from "react"
 
 type AccordionItemProps = AccordionPrimitive.AccordionItemProps & {
   title: string
@@ -24,26 +24,26 @@ type MultipleAccordionProps = AccordionPrimitive.AccordionMultipleProps &
   React.RefAttributes<HTMLDivElement>;
 
 type AccordionProps = (SingleAccordionProps | MultipleAccordionProps) & {
-  key?: Key
+  key?: React.Key
 };
 
-const Accordion: React.FC<AccordionProps> & {
-  Item: React.FC<AccordionItemProps>
-} = ({ children, key, ...props }) => {
+const Accordion = forwardRef<HTMLDivElement, AccordionProps>(({ children, key, ...props }, ref) => {
   if ('type' in props && props.type === 'single') {
     return (
-      <AccordionPrimitive.Root key={key} {...(props as AccordionPrimitive.AccordionSingleProps)}>
+      <AccordionPrimitive.Root ref={ref} key={key} {...(props as AccordionPrimitive.AccordionSingleProps)}>
         {children}
       </AccordionPrimitive.Root>
     )
   } else {
     return (
-      <AccordionPrimitive.Root key={key} {...(props as AccordionPrimitive.AccordionMultipleProps)}>
+      <AccordionPrimitive.Root ref={ref} key={key} {...(props as AccordionPrimitive.AccordionMultipleProps)}>
         {children}
       </AccordionPrimitive.Root>
     )
   }
-}
+})
+
+Accordion.displayName = "Accordion"
 
 const Item: React.FC<AccordionItemProps> = ({
   title,
