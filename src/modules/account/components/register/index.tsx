@@ -72,7 +72,7 @@ const Register = ({ setCurrentView }: Props) => {
             href="/content/terms-of-use"
             className="underline"
           >
-            les Conditions d'Utilisation du site.
+            les Conditions d&apos;Utilisation du site.
           </LocalizedClientLink>
           .
         </span>
