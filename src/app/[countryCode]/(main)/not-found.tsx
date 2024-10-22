@@ -15,7 +15,7 @@ export default function NotFound() {
       <p className="text-small-regular text-ui-fg-base">
         Oups... la page que vous cherchez est introuvable.
       </p>
-      <InteractiveLink href="/">Retourner a la page d'accueil</InteractiveLink>
+      <InteractiveLink href="/">Retourner a la page d&apos;accueil</InteractiveLink>
     </div>
   )
 }

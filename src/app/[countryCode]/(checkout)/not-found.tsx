@@ -14,7 +14,7 @@ export default async function NotFound() {
       <p className="text-small-regular text-ui-fg-base">
        OUps... il semble que cet page soit introuvable!
       </p>
-      <InteractiveLink href="/">Retourner a l'accueil</InteractiveLink>
+      <InteractiveLink href="/">Retourner a l&apos;accueil</InteractiveLink>
     </div>
   )
 }
