@@ -60,6 +60,9 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   Item: React.FC<AccordionItemProps>
 }
 
+// Add display name for the main Accordion component
+Accordion.displayName = 'Accordion'
+
 const Item: React.FC<AccordionItemProps> = ({
   title,
   subtitle,
@@ -113,7 +116,8 @@ const Item: React.FC<AccordionItemProps> = ({
   )
 }
 
-Accordion.Item = Item
+// Add display name for the Item component
+Item.displayName = 'Accordion.Item'
 
 const MorphingTrigger = () => {
   return (
@@ -125,5 +129,10 @@ const MorphingTrigger = () => {
     </div>
   )
 }
+
+// Add display name for the MorphingTrigger component
+MorphingTrigger.displayName = 'Accordion.MorphingTrigger'
+
+Accordion.Item = Item
 
 export default Accordion
