@@ -1,6 +1,6 @@
 import { Text, clx } from "@medusajs/ui"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import React, { Key } from "react"
+import React from "react"
 
 type AccordionItemProps = AccordionPrimitive.AccordionItemProps & {
   title: string
@@ -17,23 +17,19 @@ type AccordionItemProps = AccordionPrimitive.AccordionItemProps & {
   children: React.ReactNode
 }
 
-type AccordionSingleProps = Omit<AccordionPrimitive.AccordionSingleProps, 'type'> & {
-  type: 'single'
-}
+type AccordionProps =
+  | (AccordionPrimitive.AccordionSingleProps &
+      React.RefAttributes<HTMLDivElement>)
+  | (AccordionPrimitive.AccordionMultipleProps &
+      React.RefAttributes<HTMLDivElement>)
 
-type AccordionMultipleProps = Omit<AccordionPrimitive.AccordionMultipleProps, 'type'> & {
-  type: 'multiple'
-}
-
-type AccordionProps = {
-  key?: Key
-  children: React.ReactNode
-} & (AccordionSingleProps | AccordionMultipleProps)
-
-type AccordionComponent = React.ForwardRefExoticComponent<
-  AccordionProps & React.RefAttributes<HTMLDivElement>
-> & {
+const Accordion: React.FC<AccordionProps> & {
   Item: React.FC<AccordionItemProps>
+} = ({ children, ...props }) => {
+  return (
+    /* @ts-expect-error */
+    <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>
+  )
 }
 
 const Item: React.FC<AccordionItemProps> = ({
@@ -49,6 +45,7 @@ const Item: React.FC<AccordionItemProps> = ({
   ...props
 }) => {
   return (
+    /* @ts-expect-error */
     <AccordionPrimitive.Item
       {...props}
       className={clx(
@@ -57,12 +54,14 @@ const Item: React.FC<AccordionItemProps> = ({
         className
       )}
     >
+      {/* @ts-expect-error */}
       <AccordionPrimitive.Header className="px-1">
         <div className="flex flex-col">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-4">
               <Text className="text-ui-fg-subtle text-sm">{title}</Text>
             </div>
+            {/* @ts-expect-error */}
             <AccordionPrimitive.Trigger>
               {customTrigger || <MorphingTrigger />}
             </AccordionPrimitive.Trigger>
@@ -74,6 +73,7 @@ const Item: React.FC<AccordionItemProps> = ({
           )}
         </div>
       </AccordionPrimitive.Header>
+      {/* @ts-expect-error */}
       <AccordionPrimitive.Content
         forceMount={forceMountContent}
         className={clx(
@@ -89,6 +89,8 @@ const Item: React.FC<AccordionItemProps> = ({
   )
 }
 
+Accordion.Item = Item
+
 const MorphingTrigger = () => {
   return (
     <div className="text-grey-90 hover:bg-grey-5 active:bg-grey-5 active:text-violet-60 focus:border-violet-60 disabled:text-grey-30 bg-transparent disabled:bg-transparent rounded-rounded group relative p-[6px]">
@@ -100,37 +102,4 @@ const MorphingTrigger = () => {
   )
 }
 
-const AccordionComponent = React.forwardRef<HTMLDivElement, AccordionProps>(
-  ({ children, key, ...props }, ref) => {
-    if (props.type === 'single') {
-      return (
-        <AccordionPrimitive.Root 
-          ref={ref}
-          key={key} 
-          type="single" 
-          {...props}
-        >
-          {children}
-        </AccordionPrimitive.Root>
-      )
-    }
-    return (
-      <AccordionPrimitive.Root 
-        ref={ref}
-        key={key} 
-        type="multiple" 
-        {...props}
-      >
-        {children}
-      </AccordionPrimitive.Root>
-    )
-  }
-) as AccordionComponent
-
-AccordionComponent.displayName = 'Accordion'
-Item.displayName = 'Accordion.Item'
-MorphingTrigger.displayName = 'Accordion.MorphingTrigger'
-
-AccordionComponent.Item = Item
-
-export default AccordionComponent
+export default Accordion
