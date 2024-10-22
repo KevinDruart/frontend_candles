@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import {
   ProductCategory,
   ProductCollection,
@@ -10,12 +11,15 @@ import {
   StorePostCustomersCustomerReq,
   StorePostCustomersReq,
 } from "@medusajs/medusa"
+// biome-ignore lint/style/useImportType: <explanation>
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { cache } from "react"
 
 import sortProducts from "@lib/util/sort-products"
 import transformProductPreview from "@lib/util/transform-product-preview"
+// biome-ignore lint/style/useImportType: <explanation>
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+// biome-ignore lint/style/useImportType: <explanation>
 import { ProductCategoryWithChildren, ProductPreviewType } from "types/global"
 
 import { medusaClient } from "@lib/config"
@@ -38,6 +42,7 @@ const getMedusaHeaders = (tags: string[] = []) => {
     next: {
       tags,
     },
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   } as Record<string, any>
 
   const token = cookies().get("_medusa_jwt")?.value
@@ -73,6 +78,7 @@ export async function updateCart(cartId: string, data: StorePostCartsCartReq) {
     .catch((error) => medusaError(error))
 }
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getCart = cache(async function (cartId: string) {
   const headers = getMedusaHeaders(["cart"])
 
@@ -189,6 +195,7 @@ export async function completeCart(cartId: string) {
 }
 
 // Order actions
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const retrieveOrder = cache(async function (id: string) {
   const headers = getMedusaHeaders(["order"])
 
@@ -199,6 +206,7 @@ export const retrieveOrder = cache(async function (id: string) {
 })
 
 // Shipping actions
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const listCartShippingMethods = cache(async function (cartId: string) {
   const headers = getMedusaHeaders(["shipping"])
 
@@ -327,6 +335,7 @@ export async function updateShippingAddress(
     .catch((err) => medusaError(err))
 }
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const listCustomerOrders = cache(async function (
   limit: number = 10,
   offset: number = 0
@@ -340,6 +349,7 @@ export const listCustomerOrders = cache(async function (
 })
 
 // Region actions
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const listRegions = cache(async function () {
   return medusaClient.regions
     .list()
@@ -350,6 +360,7 @@ export const listRegions = cache(async function () {
     })
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const retrieveRegion = cache(async function (id: string) {
   const headers = getMedusaHeaders(["regions"])
 
@@ -361,6 +372,8 @@ export const retrieveRegion = cache(async function (id: string) {
 
 const regionMap = new Map<string, Region>()
 
+
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getRegion = cache(async function (countryCode: string) {
   try {
     if (regionMap.has(countryCode)) {
@@ -372,6 +385,7 @@ export const getRegion = cache(async function (countryCode: string) {
     if (!regions) {
       return null
     }
+
 
     regions.forEach((region) => {
       region.countries.forEach((c) => {
@@ -391,6 +405,7 @@ export const getRegion = cache(async function (countryCode: string) {
 })
 
 // Product actions
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getProductsById = cache(async function ({
   ids,
   regionId,
@@ -409,6 +424,7 @@ export const getProductsById = cache(async function ({
     })
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const retrievePricedProductById = cache(async function ({
   id,
   regionId,
@@ -427,6 +443,7 @@ export const retrievePricedProductById = cache(async function ({
     })
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getProductByHandle = cache(async function (
   handle: string
 ): Promise<{ product: PricedProduct }> {
@@ -442,6 +459,7 @@ export const getProductByHandle = cache(async function (
   return { product }
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getProductsList = cache(async function ({
   pageParam = 0,
   queryParams,
@@ -479,6 +497,7 @@ export const getProductsList = cache(async function ({
     })
 
   const transformedProducts = products.map((product) => {
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     return transformProductPreview(product, region!)
   })
 
@@ -570,6 +589,7 @@ export const getHomepageProducts = cache(async function getHomepageProducts({
 })
 
 // Collection actions
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const retrieveCollection = cache(async function (id: string) {
   return medusaClient.collections
     .retrieve(id, {
@@ -583,6 +603,7 @@ export const retrieveCollection = cache(async function (id: string) {
     })
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getCollectionsList = cache(async function (
   offset: number = 0,
   limit: number = 100
@@ -602,6 +623,7 @@ export const getCollectionsList = cache(async function (
   }
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getCollectionByHandle = cache(async function (
   handle: string
 ): Promise<ProductCollection> {
@@ -653,11 +675,13 @@ export const getProductsByCollectionHandle = cache(
 )
 
 // Category actions
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const listCategories = cache(async function () {
   const headers = {
     next: {
       tags: ["collections"],
     },
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   } as Record<string, any>
 
   return medusaClient.productCategories
@@ -668,6 +692,7 @@ export const listCategories = cache(async function () {
     })
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getCategoriesList = cache(async function (
   offset: number = 0,
   limit: number = 100
@@ -687,6 +712,7 @@ export const getCategoriesList = cache(async function (
   }
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getCategoryByHandle = cache(async function (
   categoryHandle: string[]
 ): Promise<{
@@ -723,6 +749,7 @@ export const getCategoryByHandle = cache(async function (
   }
 })
 
+// biome-ignore lint/complexity/useArrowFunction: <explanation>
 export const getProductsByCategoryHandle = cache(async function ({
   pageParam = 0,
   handle,

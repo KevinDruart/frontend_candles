@@ -1,5 +1,6 @@
 import { isEqual, omit } from "lodash"
 
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export default function compareAddresses(address1: any, address2: any) {
   return isEqual(
     omit(address1, [

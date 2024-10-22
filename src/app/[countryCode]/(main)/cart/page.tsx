@@ -1,4 +1,6 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { LineItem } from "@medusajs/medusa"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 import { cookies } from "next/headers"
 
@@ -6,12 +8,13 @@ import CartTemplate from "@modules/cart/templates"
 
 import { enrichLineItems } from "@modules/cart/actions"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
+// biome-ignore lint/style/useImportType: <explanation>
 import { CartWithCheckoutStep } from "types/global"
 import { getCart, getCustomer } from "@lib/data"
 
 export const metadata: Metadata = {
-  title: "Cart",
-  description: "View your cart",
+  title: "Mon panier",
+  description: "Voir mon panier",
 }
 
 const fetchCart = async () => {

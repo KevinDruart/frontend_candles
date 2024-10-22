@@ -28,7 +28,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
             <h3 className="text-xl-semi mb-4">Une question?</h3>
             <span className="txt-medium">
             Vous pouvez trouver les questions et réponses fréquemment posées sur notre
-            FAQ ou contacter service client.
+            FAQ ou contacter notre service client.
             </span>
           </div>
           <div>

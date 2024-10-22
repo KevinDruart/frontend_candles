@@ -1,5 +1,6 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
 import { Plus } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
@@ -27,6 +28,7 @@ const AddAddress = ({ region }: { region: Region }) => {
     closeModal()
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (successState) {
       close()
@@ -42,6 +44,7 @@ const AddAddress = ({ region }: { region: Region }) => {
 
   return (
     <>
+      {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
       <button
         className="border border-ui-border-base rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between"
         onClick={open}

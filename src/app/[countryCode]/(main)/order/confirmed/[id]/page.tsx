@@ -1,6 +1,8 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 
 import { retrieveOrder } from "@lib/data"
+// biome-ignore lint/style/useImportType: <explanation>
 import { LineItem, Order } from "@medusajs/medusa"
 import { enrichLineItems } from "@modules/cart/actions"
 import OrderCompletedTemplate from "@modules/order/templates/order-completed-template"
@@ -28,8 +30,8 @@ async function getOrder(id: string) {
 }
 
 export const metadata: Metadata = {
-  title: "Order Confirmed",
-  description: "You purchase was successful",
+  title: "Commande confirmée",
+  description: "Votre commande a été validée avec succès",
 }
 
 export default async function OrderConfirmedPage({ params }: Props) {

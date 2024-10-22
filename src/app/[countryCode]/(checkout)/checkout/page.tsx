@@ -1,6 +1,8 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
+// biome-ignore lint/style/useImportType: <explanation>
 import { LineItem } from "@medusajs/medusa"
 
 import { enrichLineItems } from "@modules/cart/actions"

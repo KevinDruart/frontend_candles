@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -8,6 +9,7 @@ import {
   listRegions,
   retrievePricedProductById,
 } from "@lib/data"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Region } from "@medusajs/medusa"
 import ProductTemplate from "@modules/products/templates"
 
@@ -17,6 +19,7 @@ type Props = {
 
 export async function generateStaticParams() {
   const countryCodes = await listRegions().then((regions) =>
+    // biome-ignore lint/complexity/useFlatMap: <explanation>
     regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
   )
 
@@ -29,9 +32,11 @@ export async function generateStaticParams() {
       return getProductsList({ countryCode })
     })
   ).then((responses) =>
+    // biome-ignore lint/complexity/useFlatMap: <explanation>
     responses.map(({ response }) => response.products).flat()
   )
 
+  // biome-ignore lint/complexity/useFlatMap: <explanation>
   const staticParams = countryCodes
     ?.map((countryCode) =>
       products.map((product) => ({
@@ -56,10 +61,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${product.title} | Medusa Store`,
+    title: `${product.title} | Candlesandpots`,
     description: `${product.title}`,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
+      title: `${product.title} | Candlesandpots`,
       description: `${product.title}`,
       images: product.thumbnail ? [product.thumbnail] : [],
     },

@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -16,8 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `Order #${order.display_id}`,
-    description: `View your order`,
+    title: `Commannde N° #${order.display_id}`,
+    // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
+    description: `Voir votre commande`,
   }
 }
 

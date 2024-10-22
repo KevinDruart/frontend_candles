@@ -1,8 +1,10 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { getCategoryByHandle, listCategories, listRegions } from "@lib/data"
 import CategoryTemplate from "@modules/categories/templates"
+// biome-ignore lint/style/useImportType: <explanation>
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 type Props = {
@@ -21,11 +23,13 @@ export async function generateStaticParams() {
   }
 
   const countryCodes = await listRegions().then((regions) =>
+    // biome-ignore lint/complexity/useFlatMap: <explanation>
     regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
   )
 
   const categoryHandles = product_categories.map((category) => category.handle)
 
+  // biome-ignore lint/complexity/useFlatMap: <explanation>
   const staticParams = countryCodes
     ?.map((countryCode) =>
       categoryHandles.map((handle) => ({
@@ -53,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${title} category.`
 
     return {
-      title: `${title} | Medusa Store`,
+      title: `${title} | Candlesandpots`,
       description,
       alternates: {
         canonical: `${params.category.join("/")}`,

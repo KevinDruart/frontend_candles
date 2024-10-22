@@ -1,13 +1,15 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 
 import SearchResultsTemplate from "@modules/search/templates/search-results-template"
 
 import { search } from "@modules/search/actions"
+// biome-ignore lint/style/useImportType: <explanation>
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 export const metadata: Metadata = {
-  title: "Search",
-  description: "Explore all of our products.",
+  title: "Rechercher des produits",
+  description: "Explorer les produits.",
 }
 
 type Params = {

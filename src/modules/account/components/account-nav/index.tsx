@@ -1,5 +1,6 @@
 "use client"
 
+// biome-ignore lint/style/useImportType: <explanation>
 import { Customer } from "@medusajs/medusa"
 import { clx } from "@medusajs/ui"
 import { ArrowRightOnRectangle } from "@medusajs/icons"
@@ -41,7 +42,7 @@ const AccountNav = ({
         ) : (
           <>
             <div className="text-xl-semi mb-4 px-8">
-              Hello {customer?.first_name}
+              Bonjour {customer?.first_name}
             </div>
             <div className="text-base-regular">
               <ul>
@@ -110,22 +111,24 @@ const AccountNav = ({
       <div className="hidden small:block" data-testid="account-nav">
         <div>
           <div className="pb-4">
-            <h3 className="text-base-semi">Account</h3>
+            <h3 className="text-base-semi">Mon compte</h3>
           </div>
           <div className="text-base-regular">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
               <li>
                 <AccountNavLink
                   href="/account"
+                  // biome-ignore lint/style/noNonNullAssertion: <explanation>
                   route={route!}
                   data-testid="overview-link"
                 >
-                  Overview
+                  Aperçu du compte
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink
                   href="/account/profile"
+                  // biome-ignore lint/style/noNonNullAssertion: <explanation>
                   route={route!}
                   data-testid="profile-link"
                 >
@@ -135,19 +138,21 @@ const AccountNav = ({
               <li>
                 <AccountNavLink
                   href="/account/addresses"
+                  // biome-ignore lint/style/noNonNullAssertion: <explanation>
                   route={route!}
                   data-testid="addresses-link"
                 >
-                  Addresses
+                  Adresses
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink
                   href="/account/orders"
+                  // biome-ignore lint/style/noNonNullAssertion: <explanation>
                   route={route!}
                   data-testid="orders-link"
                 >
-                  Orders
+                  Commandes
                 </AccountNavLink>
               </li>
               <li className="text-grey-700">
@@ -156,7 +161,7 @@ const AccountNav = ({
                   onClick={handleLogout}
                   data-testid="logout-button"
                 >
-                  Log out
+                  Me déconnecté
                 </button>
               </li>
             </ul>

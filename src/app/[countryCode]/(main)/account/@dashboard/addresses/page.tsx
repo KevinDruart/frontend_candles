@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -8,8 +9,8 @@ import { getCustomer, getRegion } from "@lib/data"
 import { headers } from "next/headers"
 
 export const metadata: Metadata = {
-  title: "Addresses",
-  description: "View your addresses",
+  title: "Adresses",
+  description: "Voir vos adresses de livraison",
 }
 
 export default async function Addresses() {
@@ -25,10 +26,10 @@ export default async function Addresses() {
   return (
     <div className="w-full" data-testid="addresses-page-wrapper">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Shipping Addresses</h1>
+        <h1 className="text-2xl-semi">Adresse de livraison</h1>
         <p className="text-base-regular">
-          View and update your shipping addresses, you can add as many as you
-          like. Saving your addresses will make them available during checkout.
+        Consultez et mettez à jour vos adresses de livraison, vous pouvez en ajouter autant que vous le souhaitez.
+         Enregistrer vos adresses les rendra disponibles lors du paiement.
         </p>
       </div>
       <AddressBook customer={customer} region={region} />

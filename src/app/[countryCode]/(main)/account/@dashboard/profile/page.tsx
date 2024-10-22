@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 
 import ProfilePhone from "@modules/account//components/profile-phone"
@@ -11,7 +12,7 @@ import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "View and edit your Medusa Store profile.",
+  description: "Voir et editer votre profile.",
 }
 
 export default async function Profile() {
@@ -27,9 +28,9 @@ export default async function Profile() {
       <div className="mb-8 flex flex-col gap-y-4">
         <h1 className="text-2xl-semi">Profile</h1>
         <p className="text-base-regular">
-          View and update your profile information, including your name, email,
-          and phone number. You can also update your billing address, or change
-          your password.
+        Afficher et mettre à jour les informations de votre profil, y compris votre nom, votre adresse e-mail,
+          et numéro de téléphone. Vous pouvez également mettre à jour votre adresse de facturation ou modifier
+          votre mot de passe.
         </p>
       </div>
       <div className="flex flex-col gap-y-8 w-full">

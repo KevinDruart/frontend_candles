@@ -1,4 +1,6 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Customer, Region } from "@medusajs/medusa"
+// biome-ignore lint/style/useImportType: <explanation>
 import React from "react"
 
 import AddAddress from "../address-card/add-address"

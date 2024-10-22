@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 
 import Footer from "@modules/layout/templates/footer"

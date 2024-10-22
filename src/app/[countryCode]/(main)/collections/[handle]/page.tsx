@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -7,6 +8,7 @@ import {
   listRegions,
 } from "@lib/data"
 import CollectionTemplate from "@modules/collections/templates"
+// biome-ignore lint/style/useImportType: <explanation>
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 type Props = {
@@ -27,11 +29,13 @@ export async function generateStaticParams() {
   }
 
   const countryCodes = await listRegions().then((regions) =>
+    // biome-ignore lint/complexity/useFlatMap: <explanation>
     regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
   )
 
   const collectionHandles = collections.map((collection) => collection.handle)
 
+  // biome-ignore lint/complexity/useFlatMap: <explanation>
   const staticParams = countryCodes
     ?.map((countryCode) =>
       collectionHandles.map((handle) => ({
@@ -52,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const metadata = {
-    title: `${collection.title} | Medusa Store`,
+    title: `${collection.title} | Candlesandpots`,
     description: `${collection.title} collection`,
   } as Metadata
 

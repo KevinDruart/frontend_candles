@@ -1,16 +1,19 @@
+// biome-ignore lint/style/useImportType: <explanation>
 import { Product } from "@medusajs/medusa"
+// biome-ignore lint/style/useImportType: <explanation>
 import { Metadata } from "next"
 
 import { getCollectionsList, getProductsList, getRegion } from "@lib/data"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
+// biome-ignore lint/style/useImportType: <explanation>
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Candlesandpots",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "Découvrez l'alliance parfaite entre artisanat authentique et élégance intemporelle. Chaque bougie et pot qui sort de notre atelier raconte une histoire unique, façonnée avec passion.",
 }
 
 const getCollectionsWithProducts = cache(
@@ -33,7 +36,9 @@ const getCollectionsWithProducts = cache(
         })
       )
     ).then((responses) =>
+      // biome-ignore lint/complexity/noForEach: <explanation>
       responses.forEach(({ response, queryParams }) => {
+        // biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
         let collection
 
         if (collections) {
